@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TeaCloudLearningPlatformApplication {
+public class TeaCloudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TeaCloudLearningPlatformApplication.class, args);
+		SpringApplication.run(TeaCloudApplication.class, args);
 	}
 
 }
