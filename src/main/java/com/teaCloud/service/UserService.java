@@ -2,7 +2,6 @@ package com.teaCloud.service;
 
 import com.teaCloud.entity.UserEntity;
 import com.teaCloud.repos.UserRepository;
-import org.springframework.http.ResponseEntity;
 
 public class UserService {
 
@@ -13,6 +12,6 @@ public class UserService {
     }
 
     public UserEntity validateUser(Long id, String password) {
-        return userRepository.findByMemberidAndPassword(id, password);
+        return userRepository.findByMemberIDAndPassword(id, password);
     }
 }

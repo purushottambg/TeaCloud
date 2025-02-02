@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface UserRepository extends JpaRepository<UserEntity,Long> {
-    public UserEntity findBymemberIdAndPassword(Long id, String Password);
+    public UserEntity findByMemberIDAndPassword(Long id, String Password);
 }

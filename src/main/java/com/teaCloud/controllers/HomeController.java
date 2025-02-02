@@ -1,22 +1,26 @@
 package com.teaCloud.controllers;
 
-import com.teaCloud.entity.UserEntity;
-import com.teaCloud.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.teaCloud.dtos.LogInDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping(path = "/")
 public class HomeController {
 
-
-
-    @PostMapping("login")
-    public String loginUser( ) {
-      return "redirect:/index";  // Redirect to index page
+    @GetMapping("")
+    public String index(Model model){
+        model.addAttribute("loginDTO", new LogInDTO());
+        return "index";
     }
+
+    @GetMapping("index")
+    public String indexPage(Model model){
+        model.addAttribute("loginDTO", new LogInDTO());
+        return "index";
+    }
+
 }

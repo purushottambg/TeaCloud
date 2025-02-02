@@ -12,4 +12,6 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "memberid", nullable = false, unique = true)
     private Long memberID;
+
+    private String password;
 }
