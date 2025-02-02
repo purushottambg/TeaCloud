@@ -16,13 +16,17 @@
     Log in panel
 -->
 <div class="container">
+
     <div class="form-container">
         <h2 id="form-title">Login to the TeaCloud</h2>
-        <form id="auth-form" th:action="post">
-            <input type="text" id="userid" placeholder="User ID" required>
-            <input type="password" id="password" placeholder="Password" required>
+        <form id="auth-form" th:action="@{/pages/validate-login}" th:object="${loginDTO}">
+            <input type="text" id="userid" placeholder="User ID" th:field="*{memberID}" required>
+            <input type="password" id="password" placeholder="Password" th:field="*{password}" required>
             <button type="submit">Submit</button>
             <p>Don't have an account? <a th:href="@{/pages/sign-up}">Sign Up</a></p>
+            <div th:if="${success}">
+                <p> your Member id is: <strong th:message="${success}"> </strong> </p>
+            </div>
         </form>
     </div>
     <div class="image-container">

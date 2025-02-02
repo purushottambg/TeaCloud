@@ -4,11 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.persistence.CollectionTable;
-
 @Controller
 @RequestMapping("/")
-public class UserController {
+public class LogInController {
 
     @GetMapping("/pages/validate-login")
     public String login(){

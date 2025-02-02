@@ -2,13 +2,33 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
 </head>
 <body>
 
 <header th:insert="/fixedcont/header">
     <!-- Header must be declared here -->
 </header>
+
+
+<div class="container">
+    <!-- Left: Signup Form -->
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form th:action="@{/pages/save-request}" method="post"  th:object="${signup}">
+            <input type="text" name="name" placeholder="Full Name" th:field="*{Name}" required>
+            <input type="number" name="age" placeholder="Age"  th:field="*{age}" required>
+            <input type="email" name="email" placeholder="E-Mail"  th:field="*{email}" required>
+            <input type="text" name="department" placeholder="Department" th:field="*{department}" required>
+            <input type="password" name="password" placeholder="Password" th:field="*{password}" required>
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="image-container"></div>
+</div>
 
 <header th:insert="/fixedcont/footer">
     <!-- Header must be declared here -->
