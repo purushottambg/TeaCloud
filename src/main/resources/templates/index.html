@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<!--
-    Header file
--->
+<header th:insert="/fixedcont/header">
+    <!-- Header must be declared here -->
+</header>
 
 <!--
     Log in panel
@@ -22,7 +22,7 @@
             <input type="text" id="userid" placeholder="User ID" required>
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Submit</button>
-            <p id="toggle-form">Don't have an account? <span th:href="@{/pages/sign-up}">Sign Up</span></p>
+            <p>Don't have an account? <a th:href="@{/pages/sign-up}">Sign Up</a></p>
         </form>
     </div>
     <div class="image-container">
@@ -31,8 +31,9 @@
 </div>
 <script src="script.js"></script>
 
-<!--
-    Footer file
--->
+<header th:insert="/fixedcont/footer">
+    <!-- Header must be declared here -->
+</header>
+
 </body>
 </html>
