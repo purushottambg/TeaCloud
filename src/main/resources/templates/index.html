@@ -24,7 +24,7 @@
         <h5 th:if="${failed}">Couldn't register you</h5>
 
         <form id="auth-form" th:action="@{/pages/validate-login}" th:object="${loginDTO}" method="post">
-            <input type="number" id="userid" placeholder="User ID" th:field="*{memberID}" required>
+            <input type="text" id="email" placeholder="User ID" th:field="*{email}" required>
             <input type="password" id="password" placeholder="Password" th:field="*{password}" required>
             <button type="submit">Submit</button>
             <p>Don't have an account? <a th:href="@{/pages/sign-up}">Sign Up</a></p>

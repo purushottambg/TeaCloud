@@ -3,6 +3,8 @@ package com.teaCloud.controllers;
 import com.teaCloud.dtos.LogInDTO;
 import com.teaCloud.entity.UserEntity;
 import com.teaCloud.repos.UserRepository;
+import com.teaCloud.service.AuthenticationService;
+import com.teaCloud.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -19,7 +21,8 @@ import org.slf4j.LoggerFactory;
 @RequiredArgsConstructor
 public class LogInController {
 
-    private final UserRepository userRepository;
+    private final AuthenticationService authenticationService;
+    private final UserService userService;
     private final ModelMapper modelMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(LogInController.class);
@@ -27,12 +30,12 @@ public class LogInController {
     @PostMapping("pages/validate-login")
     public String login(@ModelAttribute LogInDTO logInDTO, Model model){
         logger.trace("Received details are userID {} password {}", logInDTO.getMemberID(), logInDTO.getPassword());
-        logger.info("Received users exist in DB: {}", userRepository.existsById(logInDTO.getMemberID()));
-        if(userRepository.existsById(logInDTO.getMemberID())){
-            UserEntity userEntity = userRepository.findByMemberIDAndPassword(logInDTO.getMemberID(), logInDTO.getPassword());
-            LogInDTO logInDTO1 = modelMapper.map(userEntity, LogInDTO.class);
-            model.addAttribute("logInDTO1", logInDTO1);
-            logger.info("userId is {} and routing to the home page", logInDTO1.getMemberID());
+        logger.info("Received users exist in DB: {}", userService.existsById(logInDTO.getMemberID()));
+        if(userService.existsById(logInDTO.getMemberID())){
+            logger.info("We are under log in controller");
+            String Token = authenticationService.login(logInDTO.getMemberID().toString(),logInDTO.password);
+            logger.info("Token generated in login Controller is: {}", Token);
+
             return   "pages/student-home";
         }else {
             model.addAttribute("Failed to authenticate", "failed");
