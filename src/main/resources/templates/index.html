@@ -18,9 +18,11 @@
 <div class="container">
 
     <div class="form-container">
+
         <h2 id="form-title">Login to the TeaCloud</h2>
         <h5 th:if="${signedUp}">Congratulations you're registered <strong th:text="#{success}"></strong></h5>
         <h5 th:if="${failed}">Couldn't register you</h5>
+
         <form id="auth-form" th:action="@{/pages/validate-login}" th:object="${loginDTO}" method="post">
             <input type="number" id="userid" placeholder="User ID" th:field="*{memberID}" required>
             <input type="password" id="password" placeholder="Password" th:field="*{password}" required>
@@ -30,6 +32,7 @@
                 <p> your Member id is: <strong th:text="${success}"> </strong> </p>
             </div>
         </form>
+
     </div>
     <div class="image-container">
         <img th:src="@{/mediafiles/image.jpg}"  alt="Right-side Image">

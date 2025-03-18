@@ -18,7 +18,7 @@ public class IndexController {
     @GetMapping("")
     public String index(Model model){
         model.addAttribute("loginDTO", new LogInDTO());
-        logger.info("Redirecting the user to the Index Page: ");
+        logger.info("Redirecting the user to the Index Page as his first page: ");
         return "index";
     }
 

@@ -13,16 +13,17 @@
 </div>
 
 
-<h2 th:if="${logInDTO1}">This is your Home!!
-<div th:object="@{logInDTO1}">
-    <a th:text="*{memberID}"></a>
-    <a th:text="*{password}"></a>
+<div>
+    <div th:if="${logInDTO1}" th:object="${logInDTO1}">
+        <h2>This is your Home!!</h2>
+        <a th:text="*{memberID}"></a>
+        <a th:text="*{password}"></a>
+    </div>
 
+    <h2 th:if="${failed}" th:text="#{failed}"></h2>
 </div>
-</h2>
-<h2 th:unless="${logInDTO1}">
 
-</h2>
+
 
 <div th:insert="~{/fixedcont/footer}">
     <!-- Footer must be declared here -->
