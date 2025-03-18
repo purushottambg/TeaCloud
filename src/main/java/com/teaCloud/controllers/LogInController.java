@@ -28,12 +28,12 @@ public class LogInController {
     private static final Logger logger = LoggerFactory.getLogger(LogInController.class);
 
     @PostMapping("pages/validate-login")
+
     public String login(@ModelAttribute LogInDTO logInDTO, Model model){
-        logger.trace("Received details are userID {} password {}", logInDTO.getMemberID(), logInDTO.getPassword());
-        logger.info("Received users exist in DB: {}", userService.existsById(logInDTO.getMemberID()));
-        if(userService.existsById(logInDTO.getMemberID())){
+        logger.info("is able to find by email: {}", userService.existsById(logInDTO.getEmail()));
+        if(userService.existsById(logInDTO.getEmail())){
             logger.info("We are under log in controller");
-            String Token = authenticationService.login(logInDTO.getMemberID().toString(),logInDTO.password);
+            String Token = authenticationService.login(logInDTO.getEmail(),logInDTO.password);
             logger.info("Token generated in login Controller is: {}", Token);
 
             return   "pages/student-home";

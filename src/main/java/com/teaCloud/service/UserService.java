@@ -42,11 +42,11 @@ public class UserService implements UserDetailsService {
                 .orElseThrow( () ->new UsernameNotFoundException("there is no "+username+" such user") );
     }
 
-    public boolean existsById(Long memberID) {
-        return userRepository.existsById(memberID);
+    public boolean existsById(String email) {
+        return userRepository.existsByEmail(email);
     }
 
-    public UserEntity findByMemberIDAndPassword(Long memberID, String password) {
-        return userRepository.findByMemberIDAndPassword(memberID, password);
-    }
+//    public UserEntity findByMemberIDAndPassword(String email, String password) {
+//        return userRepository.findByEmailAndPassword(email, password);
+//    }
 }

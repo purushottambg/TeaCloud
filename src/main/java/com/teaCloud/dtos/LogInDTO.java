@@ -6,6 +6,6 @@ import lombok.*;
 @Getter
 @Setter
 public class LogInDTO {
-    public Long  memberID;
+    public String email;
     public String password;
 }
